@@ -1,0 +1,24 @@
+<%=form_with(model: [:admin, borrower]) do |form|%>
+    <%if params[:action] != "edit"%>
+        <div>
+            <%=form.label "Book"%>
+            <%=form.select :book_id, options_for_select(@books.map{|b| [b.name, b.id]}, selected: borrower.book_id)%>
+        </div>
+        <div>
+            <%=form.label "User"%>
+            <%=form.select :user_id, options_for_select(@users.map{|u| ["#{u.first_name} #{u.last_name}", u.id]}, selected: borrower.user_id)%>
+        </div>
+    <%else%>
+        <div>
+            <%=form.label "Book: #{borrower.book.name}"%>
+        </div>
+        <div>
+            <%=form.label "User: #{borrower.user.first_name} #{borrower.user.last_name}"%>
+        </div>
+    <%end%>
+    <div>
+        <%=form.label "Status"%>
+        <%=form.select :status, options_for_select(Borrower.statuses.map{|k,v| [k, v]}, selected: borrower.status)%>
+    </div>
+    <%=form.submit%>
+<%end%>

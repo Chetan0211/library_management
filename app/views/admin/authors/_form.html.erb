@@ -1,0 +1,5 @@
+<%=form_with(model: [:admin, author]) do |form|%>
+    <%=form.label "Name"%>
+    <%= form.text_field :name%>
+    <%= form.submit%>
+<%end%>

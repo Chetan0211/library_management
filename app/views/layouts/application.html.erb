@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibraryManagement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div>
+        <ul>
+            <%if get_logged_in_user == "admin"%>
+              <li><%=link_to "Admin DashBoard", admin_root_path%></li>
+            <%end%>
+            <%if get_logged_in_user.present?%>
+              <li><%=link_to "User", user_path(get_user_id)%></li>
+              <li><%=link_to "Log Out", log_out_path%></li>
+            <%end%>
+            
+        </ul>
+    </div>
+    <%= yield %>
+  </body>
+</html>

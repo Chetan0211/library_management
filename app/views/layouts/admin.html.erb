@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibraryManagement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div>
+        <ul>
+            <li><%=link_to "Books", admin_books_path%></li>
+            <li><%=link_to "Users", admin_users_path%></li>
+            <li><%=link_to "Borrowers", admin_borrowers_path%></li>
+            <li><%=link_to "Authors", admin_authors_path%></li>
+            <li><%=link_to "User DashBoard", root_path%></li>
+            <li><%=link_to "Logged in User Details", admin_user_path(get_user_id)%></li>
+            <li><%=link_to "Log Out", log_out_path%></li>
+        </ul>
+    </div>
+    <%= yield %>
+  </body>
+</html>

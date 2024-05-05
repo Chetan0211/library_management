@@ -1,0 +1,8 @@
+<h2><%=@show_user.first_name%> <%=@show_user.last_name%></h2>
+
+<p><b>Email:</b> <%=@show_user.email%></p>
+<p><b>Is Admin:</b> <%=@show_user.is_admin_user%></p>
+
+<p><%=link_to "Edit User", edit_admin_user_path(params[:id])%></p>
+<p><%=link_to "Delect User", admin_user_path(params[:id]), data: { "turbo-method": :delete }%></p>
+<p><%=link_to "Back to Users", admin_users_path%></p>

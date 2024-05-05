@@ -1,0 +1,29 @@
+<h2>Borrowers</h2>
+
+<p><%=link_to "New Borrower", new_admin_borrower_path%></p>
+
+<%=form_with(url: admin_borrowers_path, method: :get, local: true) do |form|%>
+    <%=form.text_field :search_text, value: @search_text, placeholder: "Search for Book or User"%>
+    <%=form.submit "Search"%>
+<%end%>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Book Name</th>
+            <th>User Name</th>
+            <th>status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@borrowers.each do |b|%>
+            <tr>
+                <td><%= link_to b.id, admin_borrower_path(b)%></td>
+                <td><%= link_to b.book.name, admin_book_path(b.book)%></td>
+                <td><%= link_to "#{b.user.first_name} #{b.user.last_name}", admin_user_path(b.user)%></td>
+                <td><%= b.status%></td>
+            </tr>
+        <%end%>
+    </tbody>
+</table>

@@ -1,0 +1,7 @@
+<h2>New Borrower</h2>
+
+<%if notice.present?%>
+    <p><%=notice%></p>
+<%end%>
+
+<%=render "form", borrower: @borrower%>

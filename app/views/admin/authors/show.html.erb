@@ -1,0 +1,7 @@
+<h2><%=@show_author.name%></h2>
+
+<p><%=link_to "Edit Author", edit_admin_author_path%></p>
+<p><%=link_to "Delect Author", admin_author_path(params[:id]), data: { "turbo-method": :delete }%></p>
+<p><%=link_to "Back to Authors", admin_authors_path%></p>
+
+

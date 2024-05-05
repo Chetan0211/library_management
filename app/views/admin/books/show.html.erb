@@ -1,0 +1,15 @@
+<h2><%=@book.name%></h2>
+
+<p><b>Price:</b> <%=@book.price%></p>
+<p><b>Total Quantity:</b> <%=@book.total_quantity%></p>
+<p><b>Available Quantity:</b> <%=@book.available_quantity%></p>
+<p><b>Author:</b> <%=@book.author.name%></p>
+
+<%if get_logged_in_user == "admin"%>
+    <p><%=link_to "Edit Book", edit_admin_book_path(params[:id])%></p>
+    <p><%=link_to "Delete Book", admin_book_path(params[:id]), data: { "turbo-method": :delete }%></p>
+    <p><%=link_to "Back to Books", admin_books_path%></p>
+<%else%>
+    <p><%=link_to "Back to Books", root_path%></p>
+<%end%>
+

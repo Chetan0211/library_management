@@ -1,0 +1,13 @@
+<%=form_with(model: [:admin, book]) do |form|%>
+    <div><%=form.label "Book Name"%>
+    <%=form.text_field :name%></div>
+    <div><%=form.label "Price"%>
+    <%=form.number_field :price%></div>
+    <div><%=form.label "Available Quantity"%>
+    <%=form.number_field :available_quantity%></div>
+    <div><%=form.label "Total Quantity"%>
+    <%=form.number_field :total_quantity%></div>
+    <div><%=form.label "Author"%>
+    <%=form.select :author_id, options_for_select(@authors.map{|a| [a.name, a.id]}, selected: book.author_id)%></div>
+    <%= form.submit%>
+<%end%>

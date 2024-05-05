@@ -1,0 +1,10 @@
+<h2>Borrower</h2>
+
+<p><b>Book Name:</b><%=@borrower.book.name%></p>
+<p><b>User Name:</b><%="#{@borrower.user.first_name} #{@borrower.user.last_name}"%></p>
+<p><b>Book Name:</b><%=@borrower.status%></p>
+</br>
+
+<p><%= link_to "Edit Borrower", edit_admin_borrower_path(@borrower)%></p>
+<p><%= link_to "Delete Borrower", admin_borrower_path(@borrower, data:{"turbo-method": :delete })%></p>
+<p><%= link_to "Back to Borrowers", admin_borrowers_path%></p>

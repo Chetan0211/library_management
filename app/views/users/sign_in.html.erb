@@ -1,0 +1,7 @@
+<h1>Sign In</h1>
+<%if notice.present?%>
+    <p><%=notice%></p>
+<%end%>
+<%=render "sign_in_form"%>
+
+<p><%=link_to "Sign Up", sign_up_path%></p>

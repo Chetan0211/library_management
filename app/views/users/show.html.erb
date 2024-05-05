@@ -1,0 +1,7 @@
+<h2><%=@user.first_name%> <%=@user.last_name%></h2>
+
+<p><b>Email:</b> <%=@user.email%></p>
+
+<p><%=link_to "Edit User", edit_user_path(params[:id])%></p>
+<p><%=link_to "Delect User", user_path(params[:id]), data: { "turbo-method": :delete }%></p>
+<p><%=link_to "Back to Dashboard", root_path%></p>

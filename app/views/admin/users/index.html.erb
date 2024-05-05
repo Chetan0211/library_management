@@ -1,0 +1,21 @@
+<h2>All Users</h2>
+<%=link_to "Add New User", new_admin_user_path%>
+</br>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Is Admin User</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @all_users.each do |user|%>
+            <tr>
+                <td><%=link_to "#{user.first_name} #{user.last_name}", admin_user_path(user.id)%></td>
+                <td><%=user.email%></td>
+                <td><%=user.is_admin_user%></td>
+            </tr>
+        <%end%>
+    </tbody>
+</table>
