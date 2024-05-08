@@ -1,2 +1,5 @@
+<%= stylesheet_link_tag 'admin_books_pages', media: 'all', 'data-turbo-track': 'reload' %>
 <h2>New Book</h2>
 <%=render "form", book: @book%>
+
+<%= javascript_import_module_tag "admin_book_form" %>

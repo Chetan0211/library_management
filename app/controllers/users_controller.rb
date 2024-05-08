@@ -22,7 +22,7 @@ class UsersController < ApplicationController
             set_user_id(@user.id)
             redirect_to root_path
         else
-            render :sign_up
+            redirect_to root_path
         end
     end
 

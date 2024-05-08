@@ -2,11 +2,11 @@
     <%if params[:action] != "edit"%>
         <div>
             <%=form.label "Book"%>
-            <%=form.select :book_id, options_for_select(@books.map{|b| [b.name, b.id]}, selected: borrower.book_id)%>
+            <%=form.select :book_id, options_for_select(@books.map{|b| [b.name, b.id]}, selected: borrower.book_id),{}, {id: "something"}%>
         </div>
         <div>
             <%=form.label "User"%>
-            <%=form.select :user_id, options_for_select(@users.map{|u| ["#{u.first_name} #{u.last_name}", u.id]}, selected: borrower.user_id)%>
+            <%=form.select :user_id, options_for_select(@users.map{|u| ["#{u.first_name} #{u.last_name}", u.id]}, selected: borrower.user_id), {}, {id: "user"}%>
         </div>
     <%else%>
         <div>
@@ -18,7 +18,7 @@
     <%end%>
     <div>
         <%=form.label "Status"%>
-        <%=form.select :status, options_for_select(Borrower.statuses.map{|k,v| [k, v]}, selected: borrower.status)%>
+        <%=form.select :status, options_for_select(Borrower.statuses.map{|k,v| [k, v]}, selected: borrower.status),{}, {id: "status"}%>
     </div>
-    <%=form.submit%>
+    <%=form.submit id: "submit"%>
 <%end%>

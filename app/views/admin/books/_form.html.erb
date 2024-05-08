@@ -1,13 +1,13 @@
 <%=form_with(model: [:admin, book]) do |form|%>
     <div><%=form.label "Book Name"%>
-    <%=form.text_field :name%></div>
+    <%=form.text_field :name, id:"book_name", class: "field"%></div>
     <div><%=form.label "Price"%>
-    <%=form.number_field :price%></div>
+    <%=form.number_field :price, id:"book_price", class: "field"%></div>
     <div><%=form.label "Available Quantity"%>
-    <%=form.number_field :available_quantity%></div>
+    <%=form.number_field :available_quantity, id:"book_available_quantity", class: "field"%></div>
     <div><%=form.label "Total Quantity"%>
-    <%=form.number_field :total_quantity%></div>
+    <%=form.number_field :total_quantity, id:"book_total_quantity", class: "field"%></div>
     <div><%=form.label "Author"%>
-    <%=form.select :author_id, options_for_select(@authors.map{|a| [a.name, a.id]}, selected: book.author_id)%></div>
-    <%= form.submit%>
+    <%=form.select :author_id, options_for_select(@authors.map{|a| [a.name, a.id]}, selected: book.author_id),{},{class: "field"}%></div>
+    <%= form.submit id:"book_submit", class: "buttons"%>
 <%end%>
